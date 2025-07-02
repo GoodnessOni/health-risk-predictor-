@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    
+
+<div class="hero">
+    <h1 id="typing-text"></h1>
+    <p>Your personalized tool for predicting health risks and getting smart wellness tips.</p>
+    <button onclick="scrollToTools()">Get Started</button>
+</div>
+
+
+
+
+<div class="features" id="tools">
+    <h2>What would you like to do?</h2>
+    <div class="cards">
+        <a href="{{ url_for('heart_risk') }}" class="card">
+            <h3>🫀 Heart Risk Prediction</h3>
+            <p>Check your risk of heart disease based on your health profile.</p>
+        </a>
+        <a href="{{ url_for('muscle_weakness') }}" class="card">
+            <h3>💪 Muscle Weakness Prediction</h3>
+            <p>Evaluate your risk of muscle weakness and mobility issues.</p>
+        </a>
+        <a href="{{ url_for('show_history') }}" class="card">
+            <h3>📜 View History</h3>
+            <p>See your past predictions and track your health journey.</p>
+        </a>
+        <a href="{{ url_for('tips') }}" class="card">
+            <h3>💡 Health Tips</h3>
+            <p>Get personalized advice based on your results.</p>
+        </a>
+    </div>
+</div>
+{% endblock %}

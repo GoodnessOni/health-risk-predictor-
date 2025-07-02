@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+   
+<head>
+    <title>OG's AI Health App</title>
+   <!-- <link rel="stylesheet" href="ogstyle.css"> -->
+     <link rel="stylesheet" href="{{ url_for('static', filename='new.css') }}">
+  <script src="{{ url_for('static', filename='home.js') }}"></script>
+</head>
+<body class="body">
+      <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('heart_risk') }}">Heart Risk</a>
+        <a href="{{ url_for('muscle_weakness') }}">Muscle Weakness</a>
+        <a href="{{ url_for('show_history') }}">View History</a>
+        <a href="{{ url_for('tips') }}">Health Tips</a>
+    </nav>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+   
+
+   </div> <!-- end of content -->
+<script src="{{ url_for('static', filename='home.js') }}"></script>
+</body>
+</html>
+</body>
+ 
+</html>
+ 

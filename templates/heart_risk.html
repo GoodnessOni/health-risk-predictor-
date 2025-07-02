@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Heart Disease Risk Prediction</h1>
+<p>Fill in the details below to check your heart risk level.</p>
+
+<form method="POST" class="form">
+
+    <label> Do you Have High Blood Pressure:</label><br>
+    <input type="radio" name="HighBP" value="1" required> Yes
+    <input type="radio" name="HighBP" value="0"> No<br><br>
+
+    <label>Cholesterol level:</label><br>
+    <input type="radio" name="HighChol" value="1" required> High
+    <input type="radio" name="HighChol" value="0"> Low<br><br>
+
+    <label>Diabetes:</label><br>
+    <select name="Diabetes_012" required>
+        <option value="0">No</option>
+        <option value="1">Borderline</option>
+        <option value="2">Yes</option>
+    </select><br><br>
+
+    <label>Body Mass Index:</label><br>
+    <input type="number" step="0.1" name="BMI" required><br><br>
+
+    <label>Smoker:</label><br>
+    <input type="radio" name="Smoker" value="1" required> Yes
+    <input type="radio" name="Smoker" value="0"> No<br><br>
+
+    <label>General Health:</label><br>
+    <select name="GenHlth" required>
+        <option value="1">Excellent</option>
+        <option value="2">Very Good</option>
+        <option value="3">Good</option>
+        <option value="4">Fair</option>
+        <option value="5">Poor</option>
+    </select><br><br>
+
+    <label>Age Range:</label><br>
+<select name="Age" required>
+    <option value="1">18–24</option>
+    <option value="2">25–29</option>
+    <option value="3">30–34</option>
+    <option value="4">35–39</option>
+    <option value="5">40–44</option>
+    <option value="6">45–49</option>
+    <option value="7">50–54</option>
+    <option value="8">55–59</option>
+    <option value="9">60–64</option>
+    <option value="10">65–69</option>
+    <option value="11">70–74</option>
+    <option value="12">75–79</option>
+    <option value="13">80 or older</option>
+</select><br><br>
+
+    <label>Difficulty Walking:</label><br>
+    <input type="radio" name="DiffWalk" value="1" required> Yes
+    <input type="radio" name="DiffWalk" value="0"> No<br><br>
+
+    <button type="submit">Predict</button>
+</form>
+
+{% if result %}
+    <h2>Prediction: {{ result }}</h2>
+{% endif %}
+
+
+{% endblock %}
