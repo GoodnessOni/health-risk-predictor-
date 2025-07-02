@@ -1,10 +1,10 @@
 # 🧠 AI Health Risk Predictor
 
-A Flask-based web app that uses machine learning to predict:
+A machine learning-powered web application that predicts the risk of **heart disease** and **muscle weakness** based on user input. Built with Flask, python,  and deployed on Render.
+
 - ❤️ Heart Disease Risk
 - 💪 Muscle Weakness Risk
 
-Built with Python, Flask, and scikit-learn.
 
 ---
 
@@ -25,7 +25,13 @@ Built with Python, Flask, and scikit-learn.
 | Frontend     | HTML, CSS, Jinja2              |
 | Backend      | Flask, Python                  |
 | ML Models    | RandomForest, DecisionTree     |
-| Data Storage | CSV (history.csv)              |
+| Data Storage | CSV (history.csv)        
+
+
+
+## 🌐 Live Demo
+
+👉 [Click here to try the app](https://health-risk-predictor-dmlt.onrender.com)      |
 
 ---
 
@@ -41,4 +47,44 @@ project/ │ ├── app.py                  # Main Flask app ├── histor
 🙌 Author
 Built with ❤️ by [Goodness]
 
-# health-risk-predictor-
+# health-risk-predictor- how to use it
+
+
+
+---
+
+## 🚀 How to Use the App
+
+1. Visit the [Live Demo](https://health-risk-predictor-dmlt.onrender.com)
+2. Choose a prediction type:
+   - Heart Disease
+   - Muscle Weakness
+3. Fill in the form with your health data
+4. Click **Predict**
+5. View your result instantly
+6. Navigate to **History** to:
+   - View past predictions
+   - Download them as a CSV
+   - Clear the history if needed
+
+---
+
+## 🖼️ Visual Walkthrough
+
+To visualize what the app does:
+- Go to the homepage
+- Submit a prediction form
+- Watch the result appear on screen
+- Click on **History** to see all past predictions
+- Use the **Download** button to export them
+
+
+---
+
+## 🛠️ How to Run Locally
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/GoodnessOni/health-risk-predictor.git
+cd health-risk-predictor
