@@ -51,7 +51,7 @@ def heart_risk():
     # GET request — show the form
     return render_template('heart_risk.html', result=result)
 
-@app.route('/predict-heart', methods=['GET'])
+""" @app.route('/predict-heart', methods=['GET'])
 def predict_heart():
     # collect form data
     highbp = int(request.form.get('HighBP', 0))
@@ -62,7 +62,7 @@ def predict_heart():
     genhlth = int(request.form.get('GenHlth', 0))
     age = int(request.form.get('Age', 0))
     diffwalk = int(request.form.get('DiffWalk', 0))
-    result = 'High Risk'  # or 'Low Risk'
+    result = 'High Risk'  # or 'Low Risk' 
 
     import csv
     with open('history.csv', 'a', newline='') as f:
@@ -74,7 +74,7 @@ def predict_heart():
             datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         ])
 
-    return render_template('result.html', result=result)
+    return render_template('result.html', result=result) """
 
 @app.route("/predict-heart-summary", methods=["GET"])
 def predict_heart_summary():
