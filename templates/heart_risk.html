@@ -3,7 +3,7 @@
 <h1>Heart Disease Risk Prediction</h1>
 <p>Fill in the details below to check your heart risk level.</p>
 
-<form method="POST" class="form">
+<form method="POST" class="form" action="/heart-risk">
 
     <label> Do you Have High Blood Pressure:</label><br>
     <input type="radio" name="HighBP" value="1" required> Yes
@@ -57,7 +57,7 @@
     <input type="radio" name="DiffWalk" value="1" required> Yes
     <input type="radio" name="DiffWalk" value="0"> No<br><br>
 
-    <button type="submit">Predict</button>
+    <button type="submit" value="Predict">Predict</button>
 </form>
 
 {% if result %}
