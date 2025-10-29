@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import joblib
 import numpy as np
 import pandas as pd
 from datetime import datetime
+import json
+from pathlib import Path
 
 app = Flask(__name__)
 
@@ -213,6 +215,53 @@ def tips():
 @app.route("/health-tips")
 def health_tips():
     return render_template("health_tips.html")
+
+
+# simple in-memory tips (replace with DB or CSV load if you want)
+TIP_LIST = [
+    {"id": "t1", "title": "Hydrate regularly", "category": "nutrition",
+     "text": "Drink water throughout the day — aim for 8 cups. Hydration supports circulation and recovery."},
+    {"id": "t2", "title": "Daily walk", "category": "activity",
+     "text": "A 20–30 minute brisk walk most days improves cardiovascular health and mood."},
+    {"id": "t3", "title": "Prioritize sleep", "category": "sleep",
+     "text": "Keep a consistent sleep schedule; 7–9 hours helps recovery and focus."},
+    {"id": "t4", "title": "Strength 2×/week", "category": "activity",
+     "text": "Include resistance training to maintain muscle mass and bone health."},
+    {"id": "t5", "title": "Mindful breaks", "category": "mental",
+     "text": "Short breathing or stretching breaks lower stress and improve productivity."},
+    {"id": "t6", "title": "Regular checkups", "category": "prevention",
+     "text": "Annual screenings and blood pressure checks catch issues early."}
+]
+
+BASE_DIR = Path(__file__).parent
+FAV_FILE = BASE_DIR / "favorites.json"
+
+@app.route('/api/tips', methods=['GET'])
+def api_tips():
+    # returns JSON list of tips
+    return jsonify(TIP_LIST)
+
+@app.route('/api/favorite', methods=['POST'])
+def api_favorite():
+    try:
+        data = request.get_json(force=True)
+        tip_id = data.get('id')
+        if not tip_id:
+            return jsonify({"error": "missing tip id"}), 400
+        entry = {"id": tip_id, "timestamp": datetime.utcnow().isoformat()}
+        # load existing
+        favs = []
+        if FAV_FILE.exists():
+            try:
+                favs = json.loads(FAV_FILE.read_text(encoding='utf-8') or "[]")
+            except Exception:
+                favs = []
+        favs.append(entry)
+        FAV_FILE.write_text(json.dumps(favs, indent=2), encoding='utf-8')
+        return jsonify({"ok": True})
+    except Exception as e:
+        logger.exception("favorite save failed")
+        return jsonify({"error": str(e)}), 500
 
 
 
